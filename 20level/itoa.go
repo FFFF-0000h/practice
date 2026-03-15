@@ -25,8 +25,7 @@ func Itoa(n int) string {
     result := ""
     for n > 0 {
         // Get the last digit and convert to character
-        digit := n % 10
-        result = string(rune('0'+digit)) + result
+        result = string('0'+n%10) + result
         n = n / 10
     }
     

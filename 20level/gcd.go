@@ -12,12 +12,8 @@ func main() {
 }
 
 func Gcd(a, b uint) uint {
-	for a != b {
-		if a > b {
-			a -= b
-		} else {
-			b -= a
-		}
+	for b != 0 {
+		a, b = b, a%b
 	}
 	return a
 }
