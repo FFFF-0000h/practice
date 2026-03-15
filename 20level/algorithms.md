@@ -418,3 +418,48 @@ text
 Word 1: "Hello!" → starts with 'H' (uppercase) ✓
 Word 2: "How" → starts with 'H' (uppercase) ✓  
 Word 3: "are" → starts with 'a' (lowercase) ✗ → return false
+-----------------------------------------------------------------------
+
+Algorithm for Itoa problem:
+
+Think of itoa as a machine that turns numbers into words. When you give it the number 123, it gives you back the string "123".
+The Intuition Behind the Algorithm
+
+Imagine you have a number like 123. How would you break it down into individual digits to create a string?
+
+Step-by-step thinking:
+
+    The last digit of 123 is 3 (from 123 % 10)
+
+    Remove the last digit: 123 / 10 = 12
+
+    Next digit: 12 % 10 = 2
+
+    Remove it: 12 / 10 = 1
+
+    Next digit: 1 % 10 = 1
+
+    Remove it: 1 / 10 = 0 (we're done!)
+
+But we got digits in reverse order: 3, 2, 1... We need to reverse them!
+The Algorithm Explained
+
+Here's how to think about building the solution:
+
+    Special case: If the number is 0, just return "0"
+
+    Handle negative numbers: Remember if it's negative, we'll add the minus sign at the end
+
+    Process digits:
+
+        Take the last digit (n % 10)
+
+        Convert it to a character (digit + '0')
+
+        Build your result from the end to the beginning
+
+        Remove the last digit (n / 10)
+
+        Repeat until n becomes 0
+
+    Add sign: If the original number was negative, add '-' at the beginning
