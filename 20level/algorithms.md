@@ -259,3 +259,49 @@ END
 Important Note About Order
 
 The order matters! You must check for "both 2 and 3" FIRST. Why? Because if a number is divisible by both (like 6), it's also divisible by 2 alone. If you check for "divisible by 2" first, you'd get "fish" instead of "fish and chips".
+
+----------------------------------------------------------------------------
+
+ALgorithm for RepeatAlpha problem:
+
+The program needs to:
+
+    Take exactly one argument (a string)
+
+    Loop through each character in the string
+
+    If it's a letter (a-z or A-Z), repeat it based on its position in the alphabet
+
+    If it's not a letter, print it as-is
+
+    Print a newline at the end
+
+Alphabetical Index Explained
+
+    For lowercase letters: 'a' is position 1, 'b' is 2, 'c' is 3, ... 'z' is 26
+
+    For uppercase letters: 'A' is position 1, 'B' is 2, ... 'Z' is 26
+
+    So 'a' prints once, 'b' prints twice, 'c' prints three times, etc.
+
+Algorithm Steps
+
+    Check arguments: If not exactly 1 argument, exit (print nothing)
+
+    Get the string: The first argument is at index 1 (os.Args[1])
+
+    Loop through each character: Use a for loop with range
+
+    For each character:
+
+        Check if it's a lowercase letter (between 'a' and 'z')
+
+        If yes: repeat it (position = char - 'a' + 1) times
+
+        Check if it's an uppercase letter (between 'A' and 'Z')
+
+        If yes: repeat it (position = char - 'A' + 1) times
+
+        If neither: print it once
+
+    Print newline at the end
