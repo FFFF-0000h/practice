@@ -305,3 +305,33 @@ Algorithm Steps
         If neither: print it once
 
     Print newline at the end
+----------------------------------------------------------------------
+
+Algorithm for FindPrevPrime problem:
+
+The function FindPrevPrime(nb int) needs to:
+
+    Take a number (like 5 or 4)
+
+    Find the largest prime number that is ≤ (less than or equal to) that number
+
+    Return 0 if there are no primes less than or equal to that number
+
+What is a Prime Number?
+
+A prime number is only divisible by 1 and itself. Examples: 2, 3, 5, 7, 11, 13...
+The Algorithm Thinking Process
+
+Let me walk through how you'd think about solving this:
+Step 1: Handle Special Cases
+
+    If the input is less than 2, there are no primes (since 2 is the smallest prime)
+
+    Return 0 in this case
+
+Step 2: Check from the Top Down
+
+Start from the given number and go downwards until you find a prime
+Step 3: Check if a Number is Prime
+
+For any number n, check if it has any divisors other than 1 and itself
