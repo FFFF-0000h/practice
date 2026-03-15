@@ -9,30 +9,30 @@ func main() {
 }
 
 func Itoa(n int) string {
-    // Handle zero
-    if n == 0 {
-        return "0"
-    }
-    
-    // Handle negative numbers
-    isNegative := false
-    if n < 0 {
-        isNegative = true
-        n = -n  // Work with positive number for digit extraction
-    }
-    
-    // Build the string
-    result := ""
-    for n > 0 {
-        // Get the last digit and convert to character
-        result = string('0'+n%10) + result
-        n = n / 10
-    }
-    
-    // Add minus sign if negative
-    if isNegative {
-        result = "-" + result
-    }
-    
-    return result
+	// Handle zero
+	if n == 0 {
+		return "0"
+	}
+
+	// Handle negative numbers
+	isNegative := false
+	if n < 0 {
+		isNegative = true
+		n = -n // Work with positive number for digit extraction
+	}
+
+	// Build the string
+	result := ""
+	for n > 0 {
+		// Get the last digit and convert to character
+		result = string('0'+n%10) + result
+		n = n / 10
+	}
+
+	// Add minus sign if negative
+	if isNegative {
+		result = "-" + result
+	}
+
+	return result
 }

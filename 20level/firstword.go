@@ -3,19 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(FirstWord("hello there"))
-	fmt.Println(FirstWord("hello   .........  bye"))
-	fmt.Println(FirstWord("hello\" \"there"))
+	fmt.Print(FirstWord("hello there"))
+	fmt.Print(FirstWord("hello   .........  bye"))
 }
 
-func FirstWord(sit string) string {
-	numstring := len(sit)
-
-	for i := 0; i < numstring; i++ {
-		if sit[i] == ' ' {
-			return sit[:i]
-		}
+func FirstWord(s string) string {
+	i := 0
+	for i < len(s) && s[i] == ' ' {
+		i++
 	}
-	// If no space found, return the whole string
-	return sit
+	start := i
+	for i < len(s) && s[i] != ' ' {
+		i++
+	}
+	return s[start:i] + "\n"
 }
