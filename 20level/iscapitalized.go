@@ -14,32 +14,20 @@ func main() {
 }
 
 func IsCapitalized(s string) bool {
-    // Track if we're at the start of a word
-    atWordStart := true
-    hasAnyWord := false
-
-    // Convert string to runes to handle Unicode characters properly
-    runes := []rune(s)
-
-    for i := 0; i < len(runes); i++ {
-        char := runes[i]
-
-        if char == ' ' {
-            atWordStart = true
-            continue
-        }
-
-        // We found a non-space character
-        hasAnyWord = true
-
-        if atWordStart {
-            // Check if it's a lowercase letter (a-z)
-            if char >= 'a' && char <= 'z' {
-                return false
-            }
-            atWordStart = false
-        }
-    }
-
-    return hasAnyWord
+	if s == "" {
+		return false
+	}
+	newWord := true
+	for _, r := range s {
+		if newWord {
+			if r >= 'a' && r <= 'z' {
+				return false
+			}
+			newWord = false
+		}
+		if r == ' ' {
+			newWord = true
+		}
+	}
+	return true
 }
