@@ -383,3 +383,38 @@ Step 4: Build the String
     For each next number, add ", " + formatted number
 
     At the end, add "\n"
+-----------------------------------------------------------------------
+
+Algorithm for IsCapitalized problem:
+
+Think of this as checking if every word in a sentence starts "properly" - meaning:
+
+    Either with a capital letter (like "Hello")
+
+    Or with something that's NOT a letter (like "!!!!Wow" or "123abc")
+
+If ANY word starts with a lowercase letter, the answer is false.
+Breaking Down the Algorithm
+
+Here's how to think about solving this:
+
+    Check for empty string - if it's empty, immediately return false
+
+    Split the problem into words - words are separated by spaces
+
+    Check the first character of each word:
+
+        If it's a lowercase letter (a-z) → return false
+
+        If it's uppercase or non-letter → keep checking next words
+
+    If you check all words and none started with lowercase → return true
+
+Step-by-Step Example
+
+Let's trace through "Hello! How are you?":
+text
+
+Word 1: "Hello!" → starts with 'H' (uppercase) ✓
+Word 2: "How" → starts with 'H' (uppercase) ✓  
+Word 3: "are" → starts with 'a' (lowercase) ✗ → return false
