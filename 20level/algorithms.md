@@ -335,3 +335,51 @@ Start from the given number and go downwards until you find a prime
 Step 3: Check if a Number is Prime
 
 For any number n, check if it has any divisors other than 1 and itself
+-----------------------------------------------------------------------
+
+Algorithm for FromTo problem:
+
+The function FromTo takes two numbers (like 1 and 10) and creates a string showing all numbers between them, formatted in a specific way.
+Key Requirements:
+
+    Numbers must be between 0 and 99 - If any number is outside this range, return "Invalid\n"
+
+    Two-digit formatting - Numbers less than 10 need a "0" in front (1 becomes "01")
+
+    Direction matters - Count UP if first number is smaller, count DOWN if first number is larger
+
+    Separator - Numbers separated by ", " (comma and space)
+
+    End with newline - Add "\n" at the end
+
+The Algorithm (Step by Step)
+Step 1: Check for Invalid Input
+go
+
+if from < 0 || from > 99 || to < 0 || to > 99 {
+    return "Invalid\n"
+}
+
+Step 2: Determine Direction
+
+    If from < to: count UP (from, from+1, from+2, ..., to)
+
+    If from > to: count DOWN (from, from-1, from-2, ..., to)
+
+    If from == to: just one number
+
+Step 3: Format Each Number
+
+    If number < 10: add "0" in front (using fmt.Sprintf("%02d", num))
+
+    If number >= 10: just convert to string normally
+
+Step 4: Build the String
+
+    Create an empty string
+
+    Add first number
+
+    For each next number, add ", " + formatted number
+
+    At the end, add "\n"
