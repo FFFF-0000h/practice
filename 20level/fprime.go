@@ -45,3 +45,31 @@ func fmtInt(x int) string {
 	}
 	return string(b)
 }
+
+
+/* If you want absolutely nothing printed, modify the main function:
+func main() {
+        if s := FPrime(225225); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(8333325); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(9539); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(804577); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(42); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(0); s != "" {
+                fmt.Println(s)
+        }
+        if s := FPrime(1); s != "" {
+                fmt.Println(s)
+        }
+}
+*/
+
