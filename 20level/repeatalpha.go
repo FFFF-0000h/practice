@@ -34,8 +34,6 @@ func RepeatAlpha(s string) string {
 	return result
 }
 
-
-
 /*
 
 

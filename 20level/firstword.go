@@ -19,7 +19,6 @@ func FirstWord(s string) string {
 	return s[start:i] + "\n"
 }
 
-
 /*
 
 import "strings"

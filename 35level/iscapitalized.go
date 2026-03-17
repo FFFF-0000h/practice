@@ -32,7 +32,6 @@ func IsCapitalized(s string) bool {
 	return true
 }
 
-
 /*
 
 func IsCapitalized(s string) bool {

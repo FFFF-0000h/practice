@@ -21,7 +21,6 @@ func LastWord(s string) string {
 	return s[i+1:end+1] + "\n"
 }
 
-
 /*
 
 import (

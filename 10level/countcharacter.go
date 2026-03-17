@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println(CountCharacter("Hello World", 'l'))       // 3
-	fmt.Println(CountCharacter("5  balloons", 5))       // 1
+	fmt.Println(CountCharacter("5  balloons", 5))         // 1
 	fmt.Println(CountCharacter("   ", ' '))               // 3 (if 3 spaces)
 	fmt.Println(CountCharacter("The 7 deadly sins", '7')) // 1
 }

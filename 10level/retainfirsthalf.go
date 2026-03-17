@@ -15,7 +15,6 @@ func RetainFirstHalf(s string) string {
 	return s[:(len(s)+1)/2]
 }
 
-
 /*
 
 import "strings"

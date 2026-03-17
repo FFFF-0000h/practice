@@ -9,11 +9,11 @@ func main() {
 }
 
 func CountAlpha(s string) int {
-n := 0
-for _, r := range s {
-if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
-n++
-}
-}
-return n
+	n := 0
+	for _, r := range s {
+		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
+			n++
+		}
+	}
+	return n
 }
