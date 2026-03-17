@@ -10,7 +10,14 @@ func main() {
 	fmt.Println(ConcatSlice([]int{1, 2, 3}, []int{}))
 }
 
+<<<<<<< HEAD
 /* func ConcatSlice(a, b []int) []int {
+=======
+func ConcatSlice(a, b []int) []int {
+      if len(a) == 0 && len(b) == 0 {
+        return nil
+    }
+>>>>>>> 3e7b5064db84b489029c65fee149be743787be62
 	return append(a, b...)
 } */
 
