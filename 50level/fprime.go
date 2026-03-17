@@ -12,6 +12,27 @@ func main() {
 	fmt.Println(FPrime(1))
 }
 
+/*
+func FPrime(value int) string {
+	if value == 1 {
+		return
+	}
+	divisionIterator := 2
+	for value > 1 {
+		if value%divisionIterator == 0 {
+			fmt.Print(divisionIterator)
+			value = value / divisionIterator
+
+			if value > 1 {
+				fmt.Print("*")
+			}
+			divisionIterator--
+		}
+		divisionIterator++
+	}
+	fmt.Println()
+} */
+
 func FPrime(n int) string {
 	if n <= 1 {
 		return ""
@@ -46,7 +67,6 @@ func fmtInt(x int) string {
 	return string(b)
 }
 
-
 /* If you want absolutely nothing printed, modify the main function:
 func main() {
         if s := FPrime(225225); s != "" {
@@ -73,3 +93,40 @@ func main() {
 }
 */
 
+/*
+
+import (
+        "fmt"
+        "os"
+        "strconv"
+)
+
+func fprime(value int) {
+        if value == 1 {
+                return
+        }
+        divisionIterator := 2
+        for value > 1 {
+                if value%divisionIterator == 0 {
+                        fmt.Print(divisionIterator)
+                        value = value / divisionIterator
+
+                        if value > 1 {
+                                fmt.Print("*")
+                        }
+                        divisionIterator--
+                }
+                divisionIterator++
+        }
+        fmt.Println()
+}
+
+func main() {
+        if len(os.Args) == 2 {
+                if i, err := strconv.Atoi(os.Args[1]); err == nil {
+                        fprime(i)
+                }
+        }
+}
+
+*/

@@ -1,19 +1,42 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println(fp("[1, 2, 3, 4, 5]", "6"))
-	fmt.Println(fp("[-1, 2, -3, 4, -5]", "1"))
-	fmt.Println(fp("[1, 2, 3, 4, 5]", "10"))
-	fmt.Println(fp("[-1, -2, -3, -4, -5]", "-5"))
-	fmt.Println(fp("[1, 2, 3, 4, 20, -4, 5]", "2 5"))
-	fmt.Println(fp("[1, 2, 3, 4, 20, p, 5]", "5"))
-	fmt.Println(fp("[1, 2, 3, 4", "5"))
-	fmt.Println(fp("1, 2, 3, 4", "5"))
+	fmt.Println(findPairs("[1, 2, 3, 4, 5]", "6"))
+	fmt.Println(findPairs("[-1, 2, -3, 4, -5]", "1"))
+	fmt.Println(findPairs("[1, 2, 3, 4, 5]", "10"))
+	fmt.Println(findPairs("[-1, -2, -3, -4, -5]", "-5"))
+	fmt.Println(findPairs("[1, 2, 3, 4, 20, -4, 5]", "2 5"))
+	fmt.Println(findPairs("[1, 2, 3, 4, 20, p, 5]", "5"))
+	fmt.Println(findPairs("[1, 2, 3, 4", "5"))
+	fmt.Println(findPairs("1, 2, 3, 4", "5"))
 }
 
-func fp(a, t string) string {
+/*
+func findPairs(arr []int, targetSum int) [][]int {
+	var pairs [][]int
+	for i := 0; i < len(arr); i++ {
+		for j := i + 1; j < len(arr); j++ {
+			if arr[i]+arr[j] == targetSum {
+				pairs = append(pairs, []int{i, j})
+			}
+		}
+	}
+	return pairs
+}
+
+func isValidArrayFormat(s string) bool {
+	s = strings.TrimSpace(s)
+	if len(s) < 2 || s[0] != '[' || s[len(s)-1] != ']' {
+		return false
+	}
+	return true
+} */
+
+func findPairs(a, t string) string {
 	if len(a) < 2 || a[0] != '[' || a[len(a)-1] != ']' {
 		return "Invalid input."
 	}

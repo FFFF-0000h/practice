@@ -11,6 +11,22 @@ func main() {
 	fmt.Println(ConcatAlternate([]int{1, 2, 3}, []int{}))
 }
 
+func ConcatAlternate(slice1, slice2 []int) []int {
+	var result []int
+
+	if len(slice1) < len(slice2) {
+		slice1, slice2 = slice2, slice1
+	}
+	for i, v := range slice1 {
+		result = append(result, v)
+		if i < len(slice2) {
+			result = append(result, slice2[i])
+		}
+	}
+	return result
+}
+
+/*
 func ConcatAlternate(a, b []int) []int {
 	res := []int{}
 	i := 0
@@ -24,4 +40,4 @@ func ConcatAlternate(a, b []int) []int {
 		i++
 	}
 	return res
-}
+} */
