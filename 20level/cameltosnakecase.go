@@ -13,6 +13,7 @@ func main() {
 	fmt.Println(CamelToSnakeCase("hey2"))
 }
 
+/*
 func containOnlyAlphabet(str string) bool {
 	for _, c := range str {
 		if (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') {
@@ -43,57 +44,54 @@ func CamelToSnakeCase(s string) string {
 	}
 	return result
 }
+*/
 
-/*
-// Helper functions FIRST (outside the main function)
-func isLetter(c byte) bool {
-	return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
-}
 
-func isUpper(c byte) bool {
-	return (c >= 'A' && c <= 'Z')
-}
-
-func toLower(c byte) byte {
-	return c + 32
-}
-
-// Main function AFTER helpers
 func CamelToSnakeCase(s string) string {
-	numstring := len(s)
+	lengthArgs := len(s)
 
-	if numstring == 0 {
+	if lengthArgs == 0 {
 		return ""
 	}
 
-	// Validation pass
-	for i := 0; i < numstring; i++ {
-		if !isLetter(s[i]) {
-			return s
-		}
-
-		if i > 0 && isUpper(s[i]) && isUpper(s[i-1]) {
+	// Check for non‑letter characters
+	for i := 0; i < lengthArgs; i++ {
+		if !(s[i] >= 'a' && s[i] <= 'z') && !(s[i] >= 'A' && s[i] <= 'Z') {
 			return s
 		}
 	}
 
-	if isUpper(s[numstring-1]) {
+	// Last character must not be uppercase
+	last := s[lengthArgs-1]
+	if last >= 'A' && last <= 'Z' {
 		return s
 	}
 
-	// Conversion pass
-	result := ""
-	for i := 0; i < len(s); i++ {
-		if isUpper(s[i]) {
-			if i > 0 {
-				result += "_"
-			}
-			// Keep the original case! Don't lowercase automatically
-			result += string(s[i])
-		} else {
-			result += string(s[i])
+	// Check for consecutive uppercase and presence of at least one uppercase
+	hasUpperCase := false
+	for i := 0; i < lengthArgs-1; i++ {
+		if s[i] >= 'A' && s[i] <= 'Z' {
+			hasUpperCase = true
+		}
+		if (s[i] >= 'A' && s[i] <= 'Z') && (s[i+1] >= 'A' && s[i+1] <= 'Z') {
+			return s
 		}
 	}
+	if last >= 'A' && last <= 'Z' {
+		hasUpperCase = true
+	}
+	if !hasUpperCase {
+		return s
+	}
 
+	// Convert to snake_case (preserving case)
+	result := ""
+	for i, ch := range s {
+		if i > 0 && ch >= 'A' && ch <= 'Z' {
+			result += "_" + string(ch)
+		} else {
+			result += string(ch)
+		}
+	}
 	return result
-} */
+}
