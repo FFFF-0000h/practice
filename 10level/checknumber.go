@@ -12,8 +12,9 @@ func main() {
 }
 
 func CheckNum(s string) bool {
-	for _, r := range s {
-		if r >= '0' && r <= '9' {
+	r := []rune(s)
+	for i := 0; i < len(r); i++ {
+		if r[i] >= '0' && r[i] <= '9' {
 			return true
 		}
 	}
