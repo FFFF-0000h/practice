@@ -11,8 +11,16 @@ func main() {
 	fmt.Println(RetainFirstHalf("Hello World"))
 }
 
-func RetainFirstHalf(s string) string {
-	return s[:(len(s)+1)/2]
+
+func RetainFirstHalf(str string) string {
+	lengthArgs := len(str)
+	if lengthArgs == 0 {
+		return ""
+	}
+	if lengthArgs == 1 {
+		return str
+	}
+	return str[:lengthArgs/2]
 }
 
 /*
