@@ -19,3 +19,16 @@ func CountCharacter(str string, c rune) int {
 	}
 	return counter
 }
+
+/*
+func CountChar(str string, c rune) int {
+	r := []rune(str)
+	count := 0
+	for i, _ := range r {
+		if r[i] == c {
+			count++
+		}
+	}
+	return count
+}
+*/
