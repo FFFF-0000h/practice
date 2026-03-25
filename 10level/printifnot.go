@@ -17,3 +17,17 @@ func PrintIfNot(s string) string {
 	}
 	return "Invalid Input\n"
 }
+
+/*
+func PrintIfNot(str string) string {
+	lengthArgs := len(str)
+	if lengthArgs < 3 {
+		return "G\n"
+	}
+	if lengthArgs == 0 {
+		return "G\n"
+	} else {
+		return "Invalid Input\n"
+	}
+}
+*/
