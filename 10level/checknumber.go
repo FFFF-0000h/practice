@@ -20,3 +20,15 @@ func CheckNum(s string) bool {
 	}
 	return false
 }
+
+/*
+func CheckNumber(arg string) bool {
+	r := []rune(arg)
+	for i, _ := range r {
+		if r[i] >= '0' && r[i] <= '9' {
+			return true
+		}
+	}
+	return false
+}
+*/
