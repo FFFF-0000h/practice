@@ -54,6 +54,47 @@ func Slice(a []string, nbr ...int) []string {
 
 /*
 func Slice(a []string, nbrs ...int) []string {
+	var start, end = 0, len(a)
+
+	if len(nbrs) > 0 {
+		start = clampIndex(nbrs[0], len(a))
+	}
+
+	if len(nbrs) > 1 {
+		end = clampIndex(nbrs[1], len(a))
+	}
+
+	if start > end {
+		return nil
+	}
+
+	return a[start:end]
+}
+
+func clampIndex(idx, length int) int {
+	if idx < 0 {
+		idx += length
+	}
+	return max(0, min(idx, length))
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+*/
+
+/*
+func Slice(a []string, nbrs ...int) []string {
 	l := len(a)
 	start := 0
 	end := l

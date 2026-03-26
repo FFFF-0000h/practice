@@ -62,3 +62,40 @@ func WordFlip(s string) string {
 	}
 	return res + "\n"
 } */
+
+/*
+package solutions
+
+import "strings"
+
+func WordFlip(arg string) string {
+	if arg == "" {
+		return "Invalid Output\n"
+	}
+	
+	// Split by spaces, preserving empty strings from consecutive spaces
+	words := strings.Split(arg, " ")
+	
+	// Build result with words in reverse order
+	var result strings.Builder
+	
+	// Find first non-empty word from the end to start building
+	firstWord := true
+	for i := len(words) - 1; i >= 0; i-- {
+		if words[i] != "" {
+			if !firstWord {
+				result.WriteString(" ")
+			}
+			result.WriteString(words[i])
+			firstWord = false
+		}
+	}
+	
+	// If all words were empty (only spaces), return newline
+	if result.Len() == 0 {
+		return "\n"
+	}
+	
+	return result.String() + "\n"
+}
+*/

@@ -15,27 +15,6 @@ func main() {
 	fmt.Println(findPairs("1, 2, 3, 4", "5"))
 }
 
-/*
-func findPairs(arr []int, targetSum int) [][]int {
-	var pairs [][]int
-	for i := 0; i < len(arr); i++ {
-		for j := i + 1; j < len(arr); j++ {
-			if arr[i]+arr[j] == targetSum {
-				pairs = append(pairs, []int{i, j})
-			}
-		}
-	}
-	return pairs
-}
-
-func isValidArrayFormat(s string) bool {
-	s = strings.TrimSpace(s)
-	if len(s) < 2 || s[0] != '[' || s[len(s)-1] != ']' {
-		return false
-	}
-	return true
-} */
-
 func findPairs(a, t string) string {
 	if len(a) < 2 || a[0] != '[' || a[len(a)-1] != ']' {
 		return "Invalid input."
@@ -119,3 +98,194 @@ func i2a(n int) string {
 	}
 	return string(b)
 }
+
+/*
+package main
+
+import (
+	"os"
+)
+
+func main() {
+	// Check if we have exactly 2 arguments
+	if len(os.Args) != 3 {
+		os.Stdout.Write([]byte("Invalid input.\n"))
+		return
+	}
+	
+	arrStr := os.Args[1]
+	targetStr := os.Args[2]
+	
+	// Parse array
+	arr, errMsg := parseArray(arrStr)
+	if errMsg != "" {
+		os.Stdout.Write([]byte(errMsg + "\n"))
+		return
+	}
+	
+	// Parse target
+	target, errMsg := parseInt(targetStr)
+	if errMsg != "" {
+		os.Stdout.Write([]byte("Invalid target sum.\n"))
+		return
+	}
+	
+	// Find pairs
+	pairs := findPairs(arr, target)
+	
+	// Output result
+	if len(pairs) == 0 {
+		os.Stdout.Write([]byte("No pairs found.\n"))
+		return
+	}
+	
+	output := "Pairs with sum " + itoa(target) + ": ["
+	for i, pair := range pairs {
+		if i > 0 {
+			output += " "
+		}
+		output += "[" + itoa(pair[0]) + " " + itoa(pair[1]) + "]"
+	}
+	output += "]\n"
+	os.Stdout.Write([]byte(output))
+}
+
+func parseArray(s string) ([]int, string) {
+	// Check format: must start with [ and end with ]
+	if len(s) < 2 || s[0] != '[' || s[len(s)-1] != ']' {
+		return nil, "Invalid input."
+	}
+	
+	// Remove brackets
+	content := s[1 : len(s)-1]
+	if content == "" {
+		return []int{}, ""
+	}
+	
+	// Split by commas
+	nums := []int{}
+	current := ""
+	negative := false
+	
+	for i := 0; i < len(content); i++ {
+		c := content[i]
+		
+		if c == ' ' {
+			continue
+		}
+		
+		if c == '-' {
+			if current != "" {
+				return nil, "Invalid input."
+			}
+			negative = true
+			continue
+		}
+		
+		if c >= '0' && c <= '9' {
+			current += string(c)
+		} else if c == ',' {
+			if current == "" {
+				return nil, "Invalid input."
+			}
+			num := 0
+			for j := 0; j < len(current); j++ {
+				num = num*10 + int(current[j]-'0')
+			}
+			if negative {
+				num = -num
+			}
+			nums = append(nums, num)
+			current = ""
+			negative = false
+		} else {
+			return nil, "Invalid number: " + string(c)
+		}
+	}
+	
+	// Handle last number
+	if current != "" {
+		num := 0
+		for j := 0; j < len(current); j++ {
+			num = num*10 + int(current[j]-'0')
+		}
+		if negative {
+			num = -num
+		}
+		nums = append(nums, num)
+	}
+	
+	return nums, ""
+}
+
+func parseInt(s string) (int, string) {
+	if s == "" {
+		return 0, "Invalid target sum."
+	}
+	
+	negative := false
+	start := 0
+	
+	if s[0] == '-' {
+		negative = true
+		start = 1
+	}
+	
+	if start >= len(s) {
+		return 0, "Invalid target sum."
+	}
+	
+	result := 0
+	for i := start; i < len(s); i++ {
+		c := s[i]
+		if c < '0' || c > '9' {
+			return 0, "Invalid target sum."
+		}
+		result = result*10 + int(c-'0')
+	}
+	
+	if negative {
+		result = -result
+	}
+	
+	return result, ""
+}
+
+func findPairs(nums []int, target int) [][2]int {
+	pairs := [][2]int{}
+	
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i]+nums[j] == target {
+				pairs = append(pairs, [2]int{i, j})
+			}
+		}
+	}
+	
+	return pairs
+}
+
+func itoa(n int) string {
+	if n == 0 {
+		return "0"
+	}
+	
+	negative := false
+	if n < 0 {
+		negative = true
+		n = -n
+	}
+	
+	digits := []byte{}
+	for n > 0 {
+		digits = append([]byte{byte('0' + n%10)}, digits...)
+		n /= 10
+	}
+	
+	if negative {
+		digits = append([]byte{'-'}, digits...)
+	}
+	
+	return string(digits)
+}
+*/
