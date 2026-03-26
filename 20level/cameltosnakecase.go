@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(CamelToSnakeCase("HelloWorld"))
+	fmt.Println(CamelToSnakeCase("HelloWorlD"))
 	fmt.Println(CamelToSnakeCase("helloWorld"))
 	fmt.Println(CamelToSnakeCase("camelCase"))
 	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))

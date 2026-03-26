@@ -24,3 +24,46 @@ func wdmatch(s1, s2 string) string {
 	}
 	return ""
 }
+
+/*
+package main
+
+import (
+    "os"
+
+    "github.com/01-edu/z01"
+)
+
+func main() {
+    if len(os.Args) != 3 {
+        return
+    }
+
+    s1 := os.Args[1]
+    s2 := os.Args[2]
+
+    if canWrite(s1, s2) {
+        printString(s1)
+        z01.PrintRune('\n')
+    }
+}
+
+func canWrite(s1, s2 string) bool {
+    i, j := 0, 0
+
+    for i < len(s1) && j < len(s2) {
+        if s1[i] == s2[j] {
+            i++
+        }
+        j++
+    }
+
+    return i == len(s1)
+}
+
+func printString(s string) {
+    for _, r := range s {
+        z01.PrintRune(r)
+    }
+}
+*/
