@@ -11,14 +11,15 @@ func main() {
 	fmt.Print(PrintIfNot("14"))
 }
 
+/*
 func PrintIfNot(s string) string {
 	if len(s) < 3 {
 		return "G\n"
 	}
 	return "Invalid Input\n"
 }
+*/
 
-/*
 func PrintIfNot(str string) string {
 	lengthArgs := len(str)
 	if lengthArgs < 3 {
@@ -30,4 +31,3 @@ func PrintIfNot(str string) string {
 		return "Invalid Input\n"
 	}
 }
-*/

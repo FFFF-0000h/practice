@@ -46,7 +46,6 @@ func CamelToSnakeCase(s string) string {
 }
 */
 
-
 func CamelToSnakeCase(s string) string {
 	lengthArgs := len(s)
 
@@ -54,20 +53,20 @@ func CamelToSnakeCase(s string) string {
 		return ""
 	}
 
-	// Check for non‑letter characters
+	// Check for non‑letter characters, if there is any, return the string. Invalid for conversion.
 	for i := 0; i < lengthArgs; i++ {
 		if !(s[i] >= 'a' && s[i] <= 'z') && !(s[i] >= 'A' && s[i] <= 'Z') {
 			return s
 		}
 	}
 
-	// Last character must not be uppercase
+	// Last character must not be uppercase, if it is, return the string. Invalid for conversion.
 	last := s[lengthArgs-1]
 	if last >= 'A' && last <= 'Z' {
 		return s
 	}
 
-	// Check for consecutive uppercase and presence of at least one uppercase
+	// Check for consecutive uppercase and presence of at least one uppercase, if there is, return the string. Invalid for conversion.
 	hasUpperCase := false
 	for i := 0; i < lengthArgs-1; i++ {
 		if s[i] >= 'A' && s[i] <= 'Z' {
@@ -77,9 +76,15 @@ func CamelToSnakeCase(s string) string {
 			return s
 		}
 	}
+
+	/* Redundant Code
+	// Check if the last letter is an uppercase and if it is, set the flag to true
 	if last >= 'A' && last <= 'Z' {
 		hasUpperCase = true
 	}
+	Redundant Code */
+
+	// Check if the value of the hasUpperCase is not true, that is, if it is false, and if it is, it returns the string. Invalid for conversion.
 	if !hasUpperCase {
 		return s
 	}
