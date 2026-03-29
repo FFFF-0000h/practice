@@ -10,7 +10,7 @@ func main() {
 }
 
 func PrintIf(s string) string {
-	if len(s) > 3 || s == "" {
+	if len(s) >= 3 || s == "" {
 		return "G\n"
 	}
 	return "Invalid Input\n"
