@@ -10,48 +10,32 @@ func main() {
 }
 
 func FirstWord(s string) string {
-	// Convert the input string to a slice of runes.
-	// Say input is s = "forgive and forget"
-	// This ensures we handle Unicode characters correctly (not just ASCII).
-	r := []rune(s)
+    r := []rune(s) // Convert the slice to a string
+    i := 0
+    n := len(r)
 
-	// word will hold the first word we extract. "forgive"
-	word := ""
+    // 1. Skip all leading spaces
+    for i < n && r[i] == ' ' {
+        i++
+    }
 
-	// foundWord acts as a flag. It becomes true once we start collecting characters
-	// for the first word, so we know when to stop at the next space.
-	foundWord := false
+    // 2. If we've reached the end, there's no word
+    if i == n {
+        return "\n"
+    }
 
-	// Iterate over each rune in the slice.
-	for i := 0; i < len(r); i++ {
-		// If the current rune is a space:
-		if r[i] == ' ' {
-			// If we have already started collecting a word, this space marks the end.
-			if foundWord {
-				// Stop the loop entirely – we’ve reached the end of the first word.
-				break
-			}
-			// Otherwise, we haven’t started a word yet, so skip this leading space.
-			continue
-		}
+    // 3. Record the start of the word
+    start := i
 
-		// This rune is not a space, so it belongs to the first word.
-		// Append it to our word string.
-		word += string(r[i])
+    // 4. Move forward until we hit a space or the end
+    for i < n && r[i] != ' ' {
+        i++
+    }
 
-		// Now that we’ve added a non‑space character, we know a word has begun.
-		foundWord = true
+    // 5. Extract the word from start to i
+    word := string(r[start:i])
 
-		// If we are at the last rune of the slice, there is no following space.
-		// The word ends here, so we can return immediately.
-		if i == len(r)-1 {
-			return word + "\n"
-		}
-	}
-
-	// If the loop finishes normally (e.g., because we hit a space after the word),
-	// we return the collected word plus a newline.
-	return word + "\n"
+    return word + "\n"
 }
 
 /*
